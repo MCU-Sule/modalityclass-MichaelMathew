@@ -24,19 +24,9 @@ public class TambahMenuCtrl {
     private int ReturnHarga;
     private float ReturnDiskon;
     private Stage stage;
-    private ObservableList<MenuItems> oList;
-
-    public ObservableList<MenuItems> getoList() {
-        return oList;
-    }
-
-    public void setoList(ObservableList<MenuItems> oList) {
-        this.oList = oList;
-    }
 
     public void initialize() {
         ObservableList<String> dList = FXCollections.observableArrayList("0.0", "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9");
-        oList = FXCollections.observableArrayList();
         DiscountList.setItems(dList);
         DiscountList.getSelectionModel().select(0);
         stage = new Stage();
@@ -60,7 +50,6 @@ public class TambahMenuCtrl {
     public void AddMenu(ActionEvent actionEvent) {
         setReturnNama(NamaMenu.getText());
         setReturnHarga(Integer.parseInt(HargaMenu.getText()));
-        setoList(oList);
         if(CustomDiskonID.getText().equals("Custom Discount")) {
             setReturnDiskon(Float.parseFloat(String.valueOf(DiscountList.getValue())));
         } else {
